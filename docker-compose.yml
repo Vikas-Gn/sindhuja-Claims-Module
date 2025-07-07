@@ -5,7 +5,7 @@ services:
     image: postgres:13
     container_name: claims-postgres
     ports:
-      - "5004:5432"
+      - "5205:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin123
@@ -20,7 +20,7 @@ services:
     build: ./Backend
     container_name: claims-backend
     ports:
-      - "3033:3033"
+      - "3205:3205"
     depends_on:
       - postgres
     networks:
@@ -30,7 +30,7 @@ services:
     build: ./Employee-claims
     container_name: employee-claims
     ports:
-      - "8035:80"
+      - "8010:80"
     depends_on:
       - backend
     networks:
@@ -40,7 +40,7 @@ services:
     build: ./HR-claims
     container_name: hr-claims
     ports:
-      - "8036:80"
+      - "8011:80"
     depends_on:
       - backend
     networks:
